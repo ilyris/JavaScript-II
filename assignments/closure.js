@@ -3,6 +3,17 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
+const multiplyBy5 = number => {
+  let calculatedTotal;
+  const multiply = number => {
+    calculatedTotal = number * 5;
+    return calculatedTotal;
+  }
+  multiply(number);
+};
+
+
+console.log(multiplyBy5(5));
 
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
