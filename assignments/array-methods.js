@@ -109,7 +109,27 @@ console.log(newDonations);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// map
+// Create an array with the runners first name, last name and email address in an object format.
+const runnersTwoMap = runners.map( (runners) => {
+  return ({
+    firstName: runners.first_name,
+    lastName: runners.last_name,
+    email: runners.email,
+    donations: runners.donation,
+  });
+});
+
+console.log(runnersTwoMap);
 
 // Problem 2
+// filter
+// filter the runners based on how high their donations were so we know who the top dogs were.
+const runnersTwoFilter = runnersTwoMap.filter( (runners) => runners.donations >= 230);
+console.log(runnersTwoFilter);
 
 // Problem 3
+// reduce
+// then we will reduce the donations from the problem 2 array to see how high of a percentage they accumulated. Another idea would be to reduce all the runners with L shirt sizes and above to see how many they are.
+const runnersTwoReduce = runnersTwoFilter.reduce( (acc, runners) => acc + runners.donations, 0);
+console.log(runnersTwoReduce);
