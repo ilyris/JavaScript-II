@@ -92,8 +92,34 @@ console.log(challenge5);
 
 /* STRETCH PROBLEM */
 
+
+const duppedArray = ['Pencil', 'Notebook', 'yo-yo', 'Gum','Pencil', 'Notebook', 'yo-yo', 'Gum']
+
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  return cb(array);
 }
+
+// Using Set and the spread operator to push the values of the array in, but with the Set data type, only unique values can be used, hence why this is PERFECT for removing duplicates
+// const purgedArray = removeDuplicates(duppedArray, (array) => {
+//   // let uniqueArray = [...new Set(array)];
+//   return uniqueArray;
+// });
+
+// Failed Attempt at trying to do this inline.
+// const purgedArray = removeDuplicates(duppedArray, (array) => {
+//   console.log(array);
+//   array.filter( (products, index) => array.indexOf(products) === index);
+// });
+
+// Decided to create a new function instead of using the inline callback so my mind could follow a little bity more.
+// Here I found that we can use indexOf when filtering to check the position of the array elements, if the element was a certain index, when it passes a duplicate it won't store it as it has already seen that it was in the array earlier.
+
+function purgedArray(array) {
+  let uniqueArray = array.filter( (products, index) => array.indexOf(products) == index );
+  return uniqueArray;
+}
+const purgedArrayNew = removeDuplicates(duppedArray, purgedArray);
+console.log(purgedArrayNew);
